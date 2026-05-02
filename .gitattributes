@@ -1,0 +1,23 @@
+* text=auto eol=lf
+
+# Explicitly mark binary files to avoid git trying to diff/merge them
+*.exe binary
+*.dll binary
+*.so binary
+*.dylib binary
+*.png binary
+*.jpg binary
+*.wasm binary
+
+# Ensure shell scripts stay LF even if someone overrides globally
+*.sh text eol=lf
+
+# Let batch files use CRLF so they work natively on Windows
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Improve diffs for Rust files
+*.rs diff=rust
+
+# Lock file should not be manually resolved
+Cargo.lock merge=binary
